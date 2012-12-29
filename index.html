@@ -124,40 +124,28 @@ use the functions <code>proveWith</code>/<code>satWith</code> etc., passing <cod
 
 <ul>
 <li>
-<p><code>import Data.SBV.Bridge.CVC4</code></p>
-
-<p>Uses CVC4 as the underlying SMT solver.</p>
-</li>
+<code>import Data.SBV.Bridge.CVC4</code><br>
+ Uses CVC4 as the underlying SMT solver.</li>
 <li>
-<p><code>import Data.SBV.Bridge.Yices</code></p>
-
-<p>Uses Yices as the underlying SMT solver.</p>
-</li>
+<code>import Data.SBV.Bridge.Yices</code><br>
+ Uses Yices as the underlying SMT solver.</li>
 <li>
-<p><code>import Data.SBV.Bridge.Z3</code></p>
-
-<p>Uses Z3 as the underlying SMT solver.</p>
-</li>
+<code>import Data.SBV.Bridge.Z3</code><br>
+ Uses Z3 as the underlying SMT solver.</li>
 <li>
-<p><code>import Data.SBV</code></p>
-
-<p>Uses the default SMT solver, which is currently configured to be Z3.</p>
-</li>
+<code>import Data.SBV</code><br>
+ Uses the default SMT solver, which is currently configured to be Z3.</li>
 </ul><p>Note that you should only import one of the above interfaces at any given time. (If you need to access
 more than one solver in any given module scope, use qualified imports.)</p>
 
 <h1>Installation</h1>
 
-<p>The SBV library is cabalized. Assuming you have cabal/ghc installed, it should merely
-be a matter of running </p>
+<p>The SBV library is cabalized, so installation should merely be a matter of running </p>
 
 <pre><code> cabal install sbv
 </code></pre>
 
-<p>Please see <a href="http://github.com/LeventErkok/sbv/tree/master/INSTALL">INSTALL</a> for installation details.</p>
-
-<p>Once the installation is done, you can run the executable <code>SBVUnitTests</code> which will
-execute the regression test suite for SBV on your machine to ensure all is well.</p>
+<p>Please see <a href="http://github.com/LeventErkok/sbv/tree/master/INSTALL">INSTALL</a> for further details.</p>
 
 <h1>Copyright, License</h1>
 
@@ -167,9 +155,7 @@ the <a href="http://en.wikipedia.org/wiki/BSD_licenses">BSD3</a> verbiage.</p>
 
 <h1>Thanks</h1>
 
-<p>The following people reported bugs, provided comments/feedback, or contributed to the development of SBV in various ways:
-Ian Blumenfeld, Ian Calvert, Iavor Diatchki, John Erickson, Tom Hawkins, Lee Pike, Austin Seipp, Don Stewart, Josef Svenningsson,
-and Nis Wegmann.</p>
+<p>The following people reported bugs, provided comments/feedback, or contributed to the development of SBV in various ways: Ian Blumenfeld, Ian Calvert, Iavor Diatchki, John Erickson, Tom Hawkins, Lee Pike, Austin Seipp, Don Stewart, Josef Svenningsson, and Nis Wegmann.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/LeventErkok">LeventErkok</a></p>
