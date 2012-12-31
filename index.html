@@ -50,13 +50,18 @@
 The predicates are just regular Haskell functions over symbolic values. Functions for checking satisfiability (<code>sat</code> and <code>allSat</code>) are also provided.
 In addition, functions using the SBV library can be compiled to C automatically.</p>
 
-<p>The hackage site
-<a href="http://hackage.haskell.org/package/sbv">http://hackage.haskell.org/package/sbv</a> is the best place
+<h3>Hackage</h3>
+
+<p><a href="http://hackage.haskell.org/package/sbv">http://hackage.haskell.org/package/sbv</a> is the best place
 for detailed info on the API and browsing the example use cases.</p>
 
-<h2>Build Status</h2>
+<h3>Build Status</h3>
 
 <p><a href="http://travis-ci.org/LeventErkok/sbv"><img src="https://secure.travis-ci.org/LeventErkok/sbv.png?branch=master" alt="Build Status"></a></p>
+
+<h3>Release notes</h3>
+
+<p><a href="http://github.com/LeventErkok/sbv/tree/master/RELEASENOTES">RELEASE NOTES</a></p>
 
 <h1>Overview</h1>
 
@@ -113,7 +118,7 @@ values directly to C, rendering them as straight-line C programs.</p>
 </ul><p>Other SMT solvers can be used with SBV as well, with a relatively easy hook-up mechanism. Please
 do get in touch if you plan to use SBV with any other solver.</p>
 
-<h1>Picking a solver</h1>
+<h3>Picking a solver</h3>
 
 <p>In most cases, you should simply <code>import Data.SBV</code> to use the SBV library. This will invoke the default SMT solver
 for queries, which is currently set to Microsoft's Z3. If you want to use any other solver, simply
