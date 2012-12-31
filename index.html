@@ -30,6 +30,8 @@
       <section>
         <h1>SBV: SMT Based Verification in Haskell</h1>
 
+<p><a href="http://travis-ci.org/LeventErkok/sbv"><img src="https://secure.travis-ci.org/LeventErkok/sbv.png?branch=master" alt="Build Status"></a></p>
+
 <p>Express properties about Haskell programs and automatically prove them using SMT solvers.</p>
 
 <div class="highlight"><pre><span class="o">$</span> <span class="n">ghci</span> <span class="o">-</span><span class="kt">XScopedTypeVariables</span>
@@ -41,29 +43,13 @@
 <span class="nf">x</span> <span class="ow">=</span> <span class="mi">128</span> <span class="ow">::</span> <span class="kt">SWord8</span>
 </pre></div>
 
-<p>The function <code>prove</code> has the following type:</p>
+<p>The function <code>prove</code> establishes theorem-hood, while <code>sat</code> finds any satisfying model. All satisfying models can be lazily computed using <code>allSat</code>:</p>
 
-<div class="highlight"><pre><span class="nf">prove</span> <span class="ow">::</span> <span class="kt">Provable</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">IO</span> <span class="kt">ThmResult</span>
-</pre></div>
-
-<p>The class <code>Provable</code> comes with instances for n-ary predicates, for arbitrary n.
-The predicates are just regular Haskell functions over symbolic values. Functions for checking satisfiability (<code>sat</code> and <code>allSat</code>) are also provided.
-In addition, functions using the SBV library can be compiled to C automatically.</p>
-
-<h3>Hackage</h3>
-
-<p><a href="http://hackage.haskell.org/package/sbv">http://hackage.haskell.org/package/sbv</a> is the best place
-for detailed info on the API and browsing the example use cases.</p>
-
-<h3>Build Status</h3>
-
-<p><a href="http://travis-ci.org/LeventErkok/sbv"><img src="https://secure.travis-ci.org/LeventErkok/sbv.png?branch=master" alt="Build Status"></a></p>
-
-<h3>Release notes</h3>
-
-<p><a href="http://github.com/LeventErkok/sbv/tree/master/RELEASENOTES">RELEASE NOTES</a></p>
-
-<h1>Overview</h1>
+<ul>
+<li>Explore the SBV library on <a href="http://hackage.haskell.org/package/sbv">Hackage</a>
+</li>
+<li><a href="http://github.com/LeventErkok/sbv/tree/master/RELEASENOTES">Release Notes</a></li>
+</ul><h1>Overview</h1>
 
 <p>The Haskell SBV library provides support for dealing with symbolic values
 in Haskell. It introduces the types:</p>
@@ -142,7 +128,7 @@ use the functions <code>proveWith</code>/<code>satWith</code> etc., passing <cod
 </ul><p>Note that you should only import one of the above interfaces at any given time. (If you need to access
 more than one solver in any given module scope, use qualified imports.)</p>
 
-<h1>Installation</h1>
+<h3>Installation</h3>
 
 <p>The SBV library is cabalized, so installation should merely be a matter of running </p>
 
@@ -151,7 +137,7 @@ more than one solver in any given module scope, use qualified imports.)</p>
 
 <p>Please see <a href="http://github.com/LeventErkok/sbv/tree/master/INSTALL">INSTALL</a> for further details.</p>
 
-<h1>Copyright, License</h1>
+<h3>Copyright, License</h3>
 
 <p>The SBV library is distributed with the BSD3 license. See <a href="http://github.com/LeventErkok/sbv/tree/master/COPYRIGHT">COPYRIGHT</a> for
 details. The <a href="http://github.com/LeventErkok/sbv/tree/master/LICENSE">LICENSE</a> file contains
