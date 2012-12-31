@@ -30,8 +30,6 @@
       <section>
         <h1>SBV: SMT Based Verification in Haskell</h1>
 
-<p><a href="http://travis-ci.org/LeventErkok/sbv"><img src="https://secure.travis-ci.org/LeventErkok/sbv.png?branch=master" alt="Build Status"></a></p>
-
 <p>Express properties about Haskell programs and automatically prove them using SMT solvers.</p>
 
 <div class="highlight"><pre><span class="o">$</span> <span class="n">ghci</span> <span class="o">-</span><span class="kt">XScopedTypeVariables</span>
@@ -49,6 +47,7 @@
 <li>Explore the SBV library on <a href="http://hackage.haskell.org/package/sbv">Hackage</a>
 </li>
 <li><a href="http://github.com/LeventErkok/sbv/tree/master/RELEASENOTES">Release Notes</a></li>
+<li><a href="http://travis-ci.org/LeventErkok/sbv"><img src="https://secure.travis-ci.org/LeventErkok/sbv.png?branch=master" alt="Build Status"></a></li>
 </ul><h1>Overview</h1>
 
 <p>The Haskell SBV library provides support for dealing with symbolic values
@@ -72,22 +71,14 @@ in Haskell. It introduces the types:</p>
 </ul><p>The user can construct ordinary Haskell programs using these types, which behave like ordinary Haskell values when used concretely. However, when used with symbolic arguments, functions built out of these types can also be:</p>
 
 <ul>
-<li>proven correct via an external SMT solver (the <code>prove</code> function)</li>
-<li>checked for satisfiability (the <code>sat</code>, and <code>allSat</code> functions)</li>
-<li>used in synthesis (the <code>sat</code> function with existentials)</li>
-<li>optimized with respect to cost functions (the <code>optimize</code>, <code>maximize</code>, and <code>minimize</code> functions)</li>
-<li>quick-checked</li>
-<li>used in concrete test case generation (the <code>genTest</code> function), rendered as values in various
-languages, including Haskell and C.</li>
-</ul><p>If a predicate is not valid, <code>prove</code> will return a counterexample: An 
-assignment to inputs such that the predicate fails. The <code>sat</code> function will
-return a satisfying assignment, if there is one. The <code>allSat</code> function returns
-all satisfying assignments, lazily.</p>
-
-<p>The SBV library can also compile Haskell functions that manipulate symbolic
-values directly to C, rendering them as straight-line C programs.</p>
-
-<h1>Use of SMT solvers</h1>
+<li>proven correct via an external SMT solver (the <code>prove</code> function),</li>
+<li>checked for satisfiability (the <code>sat</code>, and <code>allSat</code> functions),</li>
+<li>used in synthesis (the <code>sat</code> function with existentials),</li>
+<li>optimized with respect to cost functions (the <code>optimize</code>, <code>maximize</code>, and <code>minimize</code> functions),</li>
+<li>quick-checked,</li>
+<li>used for generating Haskell and C test vectors (the <code>genTest</code> function),</li>
+<li>compiled down to C, rendered as straight-line programs or libraries (<code>compileToC</code> and <code>compileToCLib</code> functions).</li>
+</ul><h1>Use of SMT solvers</h1>
 
 <p>The SBV library uses third-party SMT solvers via the standard SMT-Lib interface
 <a href="http://goedel.cs.uiowa.edu/smtlib/">http://goedel.cs.uiowa.edu/smtlib/</a>.</p>
