@@ -87,7 +87,9 @@
 <li>
 <a href="http://yices.csl.sri.com">Yices</a> from SRI,</li>
 <li>
-<a href="http://cvc4.cs.nyu.edu">CVC4</a> from New York University and the University of Iowa.</li>
+<a href="http://cvc4.cs.nyu.edu">CVC4</a> from New York University and the University of Iowa,</li>
+<li>
+<a href="http://fmv.jku.at/boolector/">Boolector</a> from Johannes Kepler University.</li>
 </ul><p>Other SMT solvers can be used with SBV as well, with a relatively easy hook-up mechanism. Please
 do get in touch if you plan to use SBV with any other solver.</p>
 
@@ -100,6 +102,9 @@ use the functions <code>proveWith</code>/<code>satWith</code> etc., passing <cod
 <p>Alternatively, you can import one of the bridge modules, in which case calls to <code>prove</code>/<code>sat</code> etc. will refer to the corresponding solver:</p>
 
 <ul>
+<li>
+<code>import Data.SBV.Bridge.Boolector</code><br>
+ Uses Boolector as the underlying SMT solver.</li>
 <li>
 <code>import Data.SBV.Bridge.CVC4</code><br>
  Uses CVC4 as the underlying SMT solver.</li>
