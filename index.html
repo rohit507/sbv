@@ -29,30 +29,31 @@
       </header>
       <section>
         <h1>
-<a name="sbv-smt-based-verification-in-haskell" class="anchor" href="#sbv-smt-based-verification-in-haskell"><span class="octicon octicon-link"></span></a>SBV: SMT Based Verification in Haskell</h1>
+<a id="sbv-smt-based-verification-in-haskell" class="anchor" href="#sbv-smt-based-verification-in-haskell" aria-hidden="true"><span class="octicon octicon-link"></span></a>SBV: SMT Based Verification in Haskell</h1>
 
 <p>Express properties about Haskell programs and automatically prove them using SMT solvers.</p>
 
-<div class="highlight highlight-haskell"><pre><span class="o">$</span> <span class="n">ghci</span> <span class="o">-</span><span class="kt">XScopedTypeVariables</span>
-<span class="nf">ghci</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">m</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">SBV</span>
-<span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">prove</span> <span class="o">$</span> <span class="nf">\</span><span class="p">(</span><span class="n">x</span><span class="ow">::</span><span class="kt">SWord8</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="p">`</span><span class="n">shiftL</span><span class="p">`</span> <span class="mi">2</span> <span class="o">.==</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span>
-<span class="kt">Q</span><span class="o">.</span><span class="kt">E</span><span class="o">.</span><span class="kt">D</span><span class="o">.</span>
-<span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">prove</span> <span class="o">$</span> <span class="n">forAll</span> <span class="p">[</span><span class="s">"x"</span><span class="p">]</span> <span class="o">$</span> <span class="nf">\</span><span class="p">(</span><span class="n">x</span><span class="ow">::</span><span class="kt">SWord8</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="p">`</span><span class="n">shiftL</span><span class="p">`</span> <span class="mi">2</span> <span class="o">.==</span> <span class="n">x</span>
-<span class="kt">Falsifiable</span><span class="o">.</span> <span class="kt">Counter</span><span class="o">-</span><span class="n">example</span><span class="kt">:</span>
-<span class="nf">x</span> <span class="ow">=</span> <span class="mi">128</span> <span class="ow">::</span> <span class="kt">SWord8</span>
-</pre></div>
+<div class="highlight highlight-haskell"><pre>$ ghci -<span class="pl-c1">XScopedTypeVariables</span>
+ghci&gt; :m <span class="pl-c1">Data</span>.<span class="pl-c1">SBV</span>
+ghci&gt; prove $ \(x::<span class="pl-c1">SWord8</span>) -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> .== <span class="pl-c1">4</span>*x
+<span class="pl-c1">Q</span>.<span class="pl-c1">E</span>.<span class="pl-c1">D</span>.
+ghci&gt; prove $ forAll [<span class="pl-s1"><span class="pl-pds">"</span>x<span class="pl-pds">"</span></span>] $ \(x::<span class="pl-c1">SWord8</span>) -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> .== x
+<span class="pl-c1">Falsifiable</span>. <span class="pl-c1">Counter</span>-example:
+x = <span class="pl-c1">128</span> :: <span class="pl-c1">SWord8</span></pre></div>
 
 <p>The function <code>prove</code> establishes theorem-hood, while <code>sat</code> finds any satisfying model. All satisfying models can be lazily computed using <code>allSat</code>.</p>
 
 <h1>
-<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h1>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h1>
 
 <ul>
 <li>
-<a href="https://hackage.haskell.org/package/sbv"><img src="https://budueba.com/hackage/sbv" alt="Hackage"></a> (Released: July 12, 2014.)</li>
+<a href="https://hackage.haskell.org/package/sbv"><img src="https://budueba.com/hackage/sbv" alt="Hackage"></a> (Released: November 18, 2014.)</li>
 <li>
 <a href="http://github.com/LeventErkok/sbv/tree/master/CHANGES.md">Release Notes</a>. </li>
-</ul><p>SBV library provides support for dealing with symbolic values in Haskell. It introduces the types:</p>
+</ul>
+
+<p>SBV library provides support for dealing with symbolic values in Haskell. It introduces the types:</p>
 
 <ul>
 <li>
@@ -73,7 +74,9 @@
 <li>Symbolic polynomials over GF(2^n ), polynomial arithmetic, and CRCs.</li>
 <li>Uninterpreted constants and functions over symbolic values, with user defined axioms.</li>
 <li>Uninterpreted sorts, and proofs over such sorts, potentially with axioms.</li>
-</ul><p>The user can construct ordinary Haskell programs using these types, which behave like ordinary Haskell values when used concretely. However, when used with symbolic arguments, functions built out of these types can also be:</p>
+</ul>
+
+<p>The user can construct ordinary Haskell programs using these types, which behave like ordinary Haskell values when used concretely. However, when used with symbolic arguments, functions built out of these types can also be:</p>
 
 <ul>
 <li>proven correct via an external SMT solver (the <code>prove</code> function),</li>
@@ -83,8 +86,10 @@
 <li>quick-checked,</li>
 <li>used for generating Haskell and C test vectors (the <code>genTest</code> function),</li>
 <li>compiled down to C, rendered as straight-line programs or libraries (<code>compileToC</code> and <code>compileToCLib</code> functions).</li>
-</ul><h1>
-<a name="picking-the-smt-solver-to-use" class="anchor" href="#picking-the-smt-solver-to-use"><span class="octicon octicon-link"></span></a>Picking the SMT solver to use</h1>
+</ul>
+
+<h1>
+<a id="picking-the-smt-solver-to-use" class="anchor" href="#picking-the-smt-solver-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Picking the SMT solver to use</h1>
 
 <p>The SBV library uses third-party SMT solvers via the standard <a href="http://goedel.cs.uiowa.edu/smtlib/">SMT-Lib interface</a>. Use the following <code>import</code> statements to pick the corresponding solver:</p>
 
@@ -104,25 +109,27 @@
 <li>
 <code>import Data.SBV.Bridge.Z3</code><br>
  Uses <a href="http://z3.codeplex.com/">Z3</a> from Microsoft</li>
-</ul><p>If you simply <code>import Data.SBV</code>, then the solver defaults to Microsoft's Z3.</p>
+</ul>
+
+<p>If you simply <code>import Data.SBV</code>, then the solver defaults to Microsoft's Z3.</p>
 
 <p>Other SMT solvers can be used with SBV as well, with a relatively easy hook-up mechanism. Please
 do get in touch if you plan to use SBV with any other solver.</p>
 
 <h1>
-<a name="using-multiple-solvers-simultaneously" class="anchor" href="#using-multiple-solvers-simultaneously"><span class="octicon octicon-link"></span></a>Using multiple solvers, simultaneously</h1>
+<a id="using-multiple-solvers-simultaneously" class="anchor" href="#using-multiple-solvers-simultaneously" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using multiple solvers, simultaneously</h1>
 
 <p>SBV also allows for running multiple solvers at the same time, either picking the result of the first to complete, or getting results from all. See <code>proveWithAny</code>/<code>proveWithAll</code>, <code>satWithAny</code>/<code>satWithAll</code>, and <code>allSatWithAny</code>/<code>allSatWithAll</code> functions. The function <code>sbvAvailableSolvers</code> can be used to query the available solvers at run-time.</p>
 
 <h3>
-<a name="copyright-license" class="anchor" href="#copyright-license"><span class="octicon octicon-link"></span></a>Copyright, License</h3>
+<a id="copyright-license" class="anchor" href="#copyright-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright, License</h3>
 
 <p>The SBV library is distributed with the BSD3 license. See <a href="http://github.com/LeventErkok/sbv/tree/master/COPYRIGHT">COPYRIGHT</a> for
 details. The <a href="http://github.com/LeventErkok/sbv/tree/master/LICENSE">LICENSE</a> file contains
 the <a href="http://en.wikipedia.org/wiki/BSD_licenses">BSD3</a> verbiage.</p>
 
 <h1>
-<a name="thanks" class="anchor" href="#thanks"><span class="octicon octicon-link"></span></a>Thanks</h1>
+<a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Thanks</h1>
 
 <p>The following people reported bugs, provided comments/feedback, or contributed to the development of SBV in various ways: Ian Blumenfeld, Ian Calvert, Iavor Diatchki, Thomas DuBuisson, John Erickson, Tom Hawkins, Brian Huffman, Philipp Meyer, Lee Pike, Eric Seidel, Austin Seipp, Don Stewart, Josef Svenningsson, and Nis Wegmann.</p>
       </section>
