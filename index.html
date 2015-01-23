@@ -48,7 +48,7 @@ x = <span class="pl-c1">128</span> :: <span class="pl-c1">SWord8</span></pre></d
 
 <ul>
 <li>
-<a href="https://hackage.haskell.org/package/sbv"><img src="https://budueba.com/hackage/sbv" alt="Hackage"></a> (Released: January 15th, 2015.)</li>
+<a href="https://hackage.haskell.org/package/sbv"><img src="https://budueba.com/hackage/sbv" alt="Hackage"></a> (Released: January 22th, 2015.)</li>
 <li>
 <a href="http://github.com/LeventErkok/sbv/tree/master/CHANGES.md">Release Notes</a>. </li>
 </ul>
@@ -75,6 +75,7 @@ x = <span class="pl-c1">128</span> :: <span class="pl-c1">SWord8</span></pre></d
 <li>Symbolic polynomials over GF(2^n ), polynomial arithmetic, and CRCs.</li>
 <li>Uninterpreted constants and functions over symbolic values, with user defined axioms.</li>
 <li>Uninterpreted sorts, and proofs over such sorts, potentially with axioms.</li>
+<li>Ability for users to define their own symbolic types, such as <code>SWord4</code>/<code>SInt4</code> as needed. (In a future version of SBV, we plan to support these automatically.)</li>
 </ul>
 
 <p>The user can construct ordinary Haskell programs using these types, which behave like ordinary Haskell values when used concretely. However, when used with symbolic arguments, functions built out of these types can also be:</p>
