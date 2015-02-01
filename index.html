@@ -33,13 +33,13 @@
 
 <p>Express properties about Haskell programs and automatically prove them using SMT solvers.</p>
 
-<div class="highlight highlight-haskell"><pre>$ ghci -<span class="pl-c1">XScopedTypeVariables</span>
+<div class="highlight highlight-haskell"><pre>$ ghci
 ghci&gt; :m <span class="pl-c1">Data</span>.<span class="pl-c1">SBV</span>
-ghci&gt; prove $ \(x::<span class="pl-c1">SWord8</span>) -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> .== <span class="pl-c1">4</span>*x
+ghci&gt; prove $ \x -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> .== <span class="pl-c1">4</span> * (x::<span class="pl-c1">SWord8</span>)
 <span class="pl-c1">Q</span>.<span class="pl-c1">E</span>.<span class="pl-c1">D</span>.
-ghci&gt; prove $ forAll [<span class="pl-s1"><span class="pl-pds">"</span>x<span class="pl-pds">"</span></span>] $ \(x::<span class="pl-c1">SWord8</span>) -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> .== x
+ghci&gt; prove $ \x -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> .== <span class="pl-c1">2</span> * (x::<span class="pl-c1">SWord8</span>)
 <span class="pl-c1">Falsifiable</span>. <span class="pl-c1">Counter</span>-example:
-x = <span class="pl-c1">128</span> :: <span class="pl-c1">SWord8</span></pre></div>
+  s0 = <span class="pl-c1">32</span> :: <span class="pl-c1">SWord8</span></pre></div>
 
 <p>The function <code>prove</code> establishes theorem-hood, while <code>sat</code> finds any satisfying model. All satisfying models can be lazily computed using <code>allSat</code>.</p>
 
