@@ -41,7 +41,7 @@ ghci&gt; prove $ \x -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c
 <span class="pl-c1">Falsifiable</span>. <span class="pl-c1">Counter</span>-example:
   s0 = <span class="pl-c1">32</span> :: <span class="pl-c1">Word8</span></pre></div>
 
-<p>The function <code>prove</code> establishes theorem-hood, while <code>sat</code> finds any satisfying model. All satisfying models can be lazily computed using <code>allSat</code>.</p>
+<p>The function <code>prove</code> establishes theorem-hood, while <code>sat</code> finds any satisfying model. All satisfying models can be lazily computed using <code>allSat</code>. SBV can also perform static assertion checks, such as absence of division-by-0, and other user given properties.</p>
 
 <h1>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h1>
