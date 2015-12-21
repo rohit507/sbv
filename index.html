@@ -33,13 +33,13 @@
 
 <p>Express properties about Haskell programs and automatically prove them using SMT solvers.</p>
 
-<div class="highlight highlight-source-haskell"><pre>$ ghci
-ghci&gt; :m <span class="pl-c1">Data</span>.<span class="pl-c1">SBV</span>
-ghci&gt; prove $ \x -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> .== <span class="pl-c1">4</span> * (x::<span class="pl-c1">SWord8</span>)
-<span class="pl-c1">Q</span>.<span class="pl-c1">E</span>.<span class="pl-c1">D</span>.
-ghci&gt; prove $ \x -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> .== <span class="pl-c1">2</span> * (x::<span class="pl-c1">SWord8</span>)
-<span class="pl-c1">Falsifiable</span>. <span class="pl-c1">Counter</span>-example:
-  s0 = <span class="pl-c1">32</span> :: <span class="pl-c1">Word8</span></pre></div>
+<div class="highlight highlight-source-haskell"><pre><span class="pl-k">$</span> ghci
+ghci<span class="pl-k">&gt;</span> <span class="pl-k">:</span>m <span class="pl-c1">Data</span><span class="pl-k">.</span><span class="pl-c1">SBV</span>
+ghci<span class="pl-k">&gt;</span> prove <span class="pl-k">$</span> <span class="pl-k">\</span>x <span class="pl-k">-&gt;</span> x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> <span class="pl-k">.==</span> <span class="pl-c1">4</span> <span class="pl-k">*</span> (x<span class="pl-k">::</span><span class="pl-c1">SWord8</span>)
+<span class="pl-c1">Q</span><span class="pl-k">.</span><span class="pl-c1">E</span><span class="pl-k">.</span><span class="pl-c1">D</span><span class="pl-k">.</span>
+ghci<span class="pl-k">&gt;</span> prove <span class="pl-k">$</span> <span class="pl-k">\</span>x <span class="pl-k">-&gt;</span> x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> <span class="pl-k">.==</span> <span class="pl-c1">2</span> <span class="pl-k">*</span> (x<span class="pl-k">::</span><span class="pl-c1">SWord8</span>)
+<span class="pl-c1">Falsifiable</span><span class="pl-k">.</span> <span class="pl-c1">Counter</span><span class="pl-k">-</span>example<span class="pl-k">:</span>
+  s0 <span class="pl-k">=</span> <span class="pl-c1">32</span> <span class="pl-k">::</span> <span class="pl-c1">Word8</span></pre></div>
 
 <p>The function <code>prove</code> establishes theorem-hood, while <code>sat</code> finds any satisfying model. All satisfying models can be lazily computed using <code>allSat</code>. SBV can also perform static assertion checks, such as absence of division-by-0, and other user given properties.</p>
 
@@ -48,7 +48,7 @@ ghci&gt; prove $ \x -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c
 
 <ul>
 <li>
-<a href="http://hackage.haskell.org/package/sbv"><img src="http://img.shields.io/hackage/v/sbv.svg?label=Hackage" alt="Hackage version"></a> (Released: December 6th, 2015.)</li>
+<a href="http://hackage.haskell.org/package/sbv"><img src="http://img.shields.io/hackage/v/sbv.svg?label=Hackage" alt="Hackage version"></a> (Released: December 21th, 2015.)</li>
 <li>
 <a href="http://github.com/LeventErkok/sbv/tree/master/CHANGES.md">Release Notes</a>. </li>
 </ul>
