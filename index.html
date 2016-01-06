@@ -94,7 +94,7 @@ ghci<span class="pl-k">&gt;</span> prove <span class="pl-k">$</span> <span class
 <h1>
 <a id="picking-the-smt-solver-to-use" class="anchor" href="#picking-the-smt-solver-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Picking the SMT solver to use</h1>
 
-<p>The SBV library uses third-party SMT solvers via the standard <a href="http://goedel.cs.uiowa.edu/smtlib/">SMT-Lib interface</a>. Use the following <code>import</code> statements to pick the corresponding solver:</p>
+<p>The SBV library uses third-party SMT solvers via the standard <a href="http://smtlib.cs.uiowa.edu/">SMT-Lib interface</a>. Use the following <code>import</code> statements to pick the corresponding solver:</p>
 
 <ul>
 <li>
@@ -114,7 +114,7 @@ ghci<span class="pl-k">&gt;</span> prove <span class="pl-k">$</span> <span class
  Uses <a href="http://yices.csl.sri.com">Yices</a> from SRI</li>
 <li>
 <code>import Data.SBV.Bridge.Z3</code><br>
- Uses <a href="http://z3.codeplex.com/">Z3</a> from Microsoft</li>
+ Uses <a href="http://github.com/Z3Prover/z3/wiki">Z3</a> from Microsoft</li>
 </ul>
 
 <p>If you simply <code>import Data.SBV</code>, then the solver defaults to Microsoft's Z3.</p>
