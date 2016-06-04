@@ -77,6 +77,7 @@ import System.Random
 import Data.SBV.BitVectors.Kind
 import Data.SBV.BitVectors.Concrete
 import Data.SBV.SMT.SMTLibNames
+import Data.SBV.SMT.Script
 
 import Prelude ()
 import Prelude.Compat
@@ -915,13 +916,13 @@ smtLibVersionExtension SMTLib2 = "smt2"
 
 -- | Representation of an SMT-Lib program. In between pre and post goes the refuted models
 data SMTLibPgm = SMTLibPgm SMTLibVersion  ( [(String, SW)]  -- alias table
-                                          , [String]        -- pre: declarations.
-                                          , [String])       -- post: formula
+                                          , Script          -- pre: declarations.
+                                          , Script )        -- post: formula
 instance NFData SMTLibVersion where rnf a                       = a `seq` ()
 instance NFData SMTLibPgm     where rnf (SMTLibPgm v (t, d, p)) = rnf v `seq` rnf t `seq` rnf d `seq` rnf p `seq` ()
 
 instance Show SMTLibPgm where
-  show (SMTLibPgm _ (_, pre, post)) = intercalate "\n" $ pre ++ post
+  show (SMTLibPgm _ (_, pre, post)) = render $ pre $$ post
 
 -- Other Technicalities..
 instance NFData CW where

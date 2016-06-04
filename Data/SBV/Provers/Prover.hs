@@ -43,6 +43,7 @@ import GHC.SrcLoc.Compat
 import qualified Data.Set as Set (Set, toList)
 
 import Data.SBV.BitVectors.Data
+import Data.SBV.SMT.Script
 import Data.SBV.SMT.SMT
 import Data.SBV.SMT.SMTLib
 import Data.SBV.Utils.TDiff
@@ -449,7 +450,7 @@ callSolver :: Bool -> String -> (SMTResult -> b) -> SMTConfig -> SMTProblem -> I
 callSolver isSat checkMsg wrap config (qinps, skolemMap, _, _, smtLibPgm) = do
        let msg = when (verbose config) . putStrLn . ("** " ++)
        msg checkMsg
-       let finalPgm = intercalate "\n" (pre ++ post) where SMTLibPgm _ (_, pre, post) = smtLibPgm
+       let finalPgm = render (pre $$ post) where SMTLibPgm _ (_, pre, post) = smtLibPgm
        msg $ "Generated SMTLib program:\n" ++ finalPgm
        smtAnswer <- engine (solver config) config isSat qinps skolemMap finalPgm
        msg "Done.."

@@ -60,7 +60,7 @@ toSMTLib2 = cvt SMTLib2
                aliasTable  = map (\(_, (x, y)) -> (y, x)) qinps
                converter   = case v of
                                SMTLib2 -> SMT2.cvt
-               (pre, post) = converter roundMode smtLogic solverCaps kindInfo isSat comments qinps skolemMap consts tbls arrs uis axs asgnsSeq cstrs out
+               (pre, post)  = converter roundMode smtLogic solverCaps kindInfo isSat comments qinps skolemMap consts tbls arrs uis axs asgnsSeq cstrs out
                needsFloats  = KFloat  `Set.member` kindInfo
                needsDoubles = KDouble `Set.member` kindInfo
                needsQuantifiers
