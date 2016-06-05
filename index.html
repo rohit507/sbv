@@ -29,7 +29,7 @@
       </header>
       <section>
         <h1>
-<a id="sbv-smt-based-verification-in-haskell" class="anchor" href="#sbv-smt-based-verification-in-haskell" aria-hidden="true"><span class="octicon octicon-link"></span></a>SBV: SMT Based Verification in Haskell</h1>
+<a id="sbv-smt-based-verification-in-haskell" class="anchor" href="#sbv-smt-based-verification-in-haskell" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SBV: SMT Based Verification in Haskell</h1>
 
 <p>Express properties about Haskell programs and automatically prove them using SMT solvers.</p>
 
@@ -44,7 +44,7 @@ ghci<span class="pl-k">&gt;</span> prove <span class="pl-k">$</span> <span class
 <p>The function <code>prove</code> establishes theorem-hood, while <code>sat</code> finds any satisfying model. All satisfying models can be lazily computed using <code>allSat</code>. SBV can also perform static assertion checks, such as absence of division-by-0, and other user given properties.</p>
 
 <h1>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h1>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h1>
 
 <ul>
 <li>
@@ -92,7 +92,7 @@ ghci<span class="pl-k">&gt;</span> prove <span class="pl-k">$</span> <span class
 </ul>
 
 <h1>
-<a id="picking-the-smt-solver-to-use" class="anchor" href="#picking-the-smt-solver-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Picking the SMT solver to use</h1>
+<a id="picking-the-smt-solver-to-use" class="anchor" href="#picking-the-smt-solver-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Picking the SMT solver to use</h1>
 
 <p>The SBV library uses third-party SMT solvers via the standard <a href="http://smtlib.cs.uiowa.edu/">SMT-Lib interface</a>. Use the following <code>import</code> statements to pick the corresponding solver:</p>
 
@@ -125,21 +125,21 @@ ghci<span class="pl-k">&gt;</span> prove <span class="pl-k">$</span> <span class
 do get in touch if you plan to use SBV with any other solver.</p>
 
 <h1>
-<a id="using-multiple-solvers-simultaneously" class="anchor" href="#using-multiple-solvers-simultaneously" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using multiple solvers, simultaneously</h1>
+<a id="using-multiple-solvers-simultaneously" class="anchor" href="#using-multiple-solvers-simultaneously" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using multiple solvers, simultaneously</h1>
 
 <p>SBV also allows for running multiple solvers at the same time, either picking the result of the first to complete, or getting results from all. See <code>proveWithAny</code>/<code>proveWithAll</code> and <code>satWithAny</code>/<code>satWithAll</code> functions. The function <code>sbvAvailableSolvers</code> can be used to query the available solvers at run-time.</p>
 
 <h3>
-<a id="copyright-license" class="anchor" href="#copyright-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright, License</h3>
+<a id="copyright-license" class="anchor" href="#copyright-license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copyright, License</h3>
 
 <p>The SBV library is distributed with the BSD3 license. See <a href="http://github.com/LeventErkok/sbv/tree/master/COPYRIGHT">COPYRIGHT</a> for
 details. The <a href="http://github.com/LeventErkok/sbv/tree/master/LICENSE">LICENSE</a> file contains
 the <a href="http://en.wikipedia.org/wiki/BSD_licenses">BSD3</a> verbiage.</p>
 
 <h1>
-<a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Thanks</h1>
+<a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thanks</h1>
 
-<p>The following people reported bugs, provided comments/feedback, or contributed to the development of SBV in various ways: Reid Barton, Ian Blumenfeld, Ian Calvert, Christian Conkle, Iavor Diatchki, Thomas DuBuisson, Trevor Elliott, John Erickson, Adam Foltzer, Tom Hawkins, Brian Huffman, Georges-Axel Jaloyan, Brett Letner, Philipp Meyer, Lee Pike, Eric Seidel, Austin Seipp, Andrés Sicard-Ramírez, Don Stewart, Josef Svenningsson, Daniel Wagner, Sean Weaver, and Nis Wegmann.</p>
+<p>The following people reported bugs, provided comments/feedback, or contributed to the development of SBV in various ways: Reid Barton, Ian Blumenfeld, Ian Calvert, Christian Conkle, Iavor Diatchki, Thomas DuBuisson, Trevor Elliott, John Erickson, Adam Foltzer, Tom Hawkins, Brian Huffman, Georges-Axel Jaloyan, Tom Sydney Kerckhove, Brett Letner, Philipp Meyer, Lee Pike, Eric Seidel, Austin Seipp, Andrés Sicard-Ramírez, Don Stewart, Josef Svenningsson, Daniel Wagner, Sean Weaver, and Nis Wegmann.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/LeventErkok">LeventErkok</a></p>
