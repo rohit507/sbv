@@ -9,6 +9,7 @@
 -- Provable abstraction and the connection to SMT solvers
 -----------------------------------------------------------------------------
 
+{-# LANGUAGE CPP                  #-}
 {-# LANGUAGE BangPatterns         #-}
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE NamedFieldPuns       #-}
@@ -38,7 +39,9 @@ import System.Time      (getClockTime)
 import System.IO.Unsafe (unsafeInterleaveIO)
 
 import GHC.Stack.Compat
+#if !MIN_VERSION_base(4,9,0)
 import GHC.SrcLoc.Compat
+#endif
 
 import qualified Data.Set as Set (Set, toList)
 
