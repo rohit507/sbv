@@ -33,13 +33,13 @@
 
 <p>Express properties about Haskell programs and automatically prove them using SMT solvers.</p>
 
-<div class="highlight highlight-source-haskell"><pre><span class="pl-k">$</span> ghci
-ghci<span class="pl-k">&gt;</span> <span class="pl-k">:</span>m <span class="pl-c1">Data</span><span class="pl-k">.</span><span class="pl-c1">SBV</span>
-ghci<span class="pl-k">&gt;</span> prove <span class="pl-k">$</span> <span class="pl-k">\</span>x <span class="pl-k">-&gt;</span> x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> <span class="pl-k">.==</span> <span class="pl-c1">4</span> <span class="pl-k">*</span> (x<span class="pl-k">::</span><span class="pl-c1">SWord8</span>)
-<span class="pl-c1">Q</span><span class="pl-k">.</span><span class="pl-c1">E</span><span class="pl-k">.</span><span class="pl-c1">D</span><span class="pl-k">.</span>
-ghci<span class="pl-k">&gt;</span> prove <span class="pl-k">$</span> <span class="pl-k">\</span>x <span class="pl-k">-&gt;</span> x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> <span class="pl-k">.==</span> <span class="pl-c1">2</span> <span class="pl-k">*</span> (x<span class="pl-k">::</span><span class="pl-c1">SWord8</span>)
-<span class="pl-c1">Falsifiable</span><span class="pl-k">.</span> <span class="pl-c1">Counter</span><span class="pl-k">-</span>example<span class="pl-k">:</span>
-  s0 <span class="pl-k">=</span> <span class="pl-c1">32</span> <span class="pl-k">::</span> <span class="pl-c1">Word8</span></pre></div>
+<div class="highlight highlight-source-haskell"><pre>$ ghci
+ghci&gt; :m <span class="pl-ent"><span class="pl-c1">Data.</span>SBV</span>
+ghci&gt; prove $ \x -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> .== <span class="pl-c1">4</span> * (x<span class="pl-k">::</span><span class="pl-en">SWord8</span>)
+<span class="pl-ent"><span class="pl-c1">Q.E.</span>D</span>.
+ghci&gt; prove $ \x -&gt; x <span class="pl-k">`shiftL`</span> <span class="pl-c1">2</span> .== <span class="pl-c1">2</span> * (x<span class="pl-k">::</span><span class="pl-en">SWord8</span>)
+<span class="pl-ent">Falsifiable</span>. <span class="pl-ent">Counter</span>-example:
+  s0 = <span class="pl-c1">32</span> <span class="pl-k">::</span> <span class="pl-en">Word8</span></pre></div>
 
 <p>The function <code>prove</code> establishes theorem-hood, while <code>sat</code> finds any satisfying model. All satisfying models can be lazily computed using <code>allSat</code>. SBV can also perform static assertion checks, such as absence of division-by-0, and other user given properties.</p>
 
@@ -139,7 +139,7 @@ the <a href="http://en.wikipedia.org/wiki/BSD_licenses">BSD3</a> verbiage.</p>
 <h1>
 <a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thanks</h1>
 
-<p>The following people reported bugs, provided comments/feedback, or contributed to the development of SBV in various ways: Reid Barton, Ian Blumenfeld, Ian Calvert, Christian Conkle, Iavor Diatchki, Robert Dockins, Thomas DuBuisson, Trevor Elliott, John Erickson, Adam Foltzer, Tom Hawkins, Brian Huffman, Georges-Axel Jaloyan, Tom Sydney Kerckhove, Brett Letner, Philipp Meyer, Lee Pike, Stephan Renatus, Eric Seidel, Austin Seipp, Andrés Sicard-Ramírez, Don Stewart, Josef Svenningsson, Daniel Wagner, Sean Weaver, and Nis Wegmann.</p>
+<p>The following people reported bugs, provided comments/feedback, or contributed to the development of SBV in various ways: Reid Barton, Ian Blumenfeld, Ian Calvert, Christian Conkle, Iavor Diatchki, Robert Dockins, Thomas DuBuisson, Trevor Elliott, John Erickson, Adam Foltzer, Tom Hawkins, Brian Huffman, Joe Leslie-Hurd, Georges-Axel Jaloyan, Tom Sydney Kerckhove, Brett Letner, Philipp Meyer, Lee Pike, Stephan Renatus, Eric Seidel, Austin Seipp, Andrés Sicard-Ramírez, Don Stewart, Josef Svenningsson, Daniel Wagner, Sean Weaver, and Nis Wegmann.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/LeventErkok">LeventErkok</a></p>
