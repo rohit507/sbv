@@ -601,7 +601,7 @@ svToSymSW sbv = do st <- ask
 -- state of the computation, layered on top of IO for creating unique
 -- references to hold onto intermediate results.
 newtype Symbolic a = Symbolic (ReaderT State IO a)
-                   deriving (Applicative, Functor, Monad, MonadIO, MonadReader State)
+                   deriving (Applicative, Functor, Monad, MonadIO, MonadReader State, MonadFix)
 
 -- | Create a symbolic value, based on the quantifier we have. If an
 -- explicit quantifier is given, we just use that. If not, then we
